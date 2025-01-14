@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size:1vw;
+}
+
+.vc {
+    display:none;
+}
+
+.inButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin: 2vw 1vw 0vw;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 4px 5px;
+}
+
+
+.inButton >p:nth-child(2) {
+    color: #ff8C09;
+    font-weight: 600;
+}
