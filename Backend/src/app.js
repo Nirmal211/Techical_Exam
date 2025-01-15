@@ -13,7 +13,7 @@ const _dirname = path.resolve();
 
 // Configue Cors
 const corsOptions = {
-  origin:"https://techical-exam.onrender.com", // Allow all origin
+  origin: "https://techical-exam.onrender.com", // Allow all origin
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed Methods
   allowedHeaders: ["Content-type", "Authorization"], // Allowed headers
   credential: true,
@@ -21,9 +21,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Technical Exam Page");
-});
+// app.get("/", (req, res) => {
+//   res.send("Welcome to the Technical Exam Page");
+// });
 
 app.post("/setData", async (req, res) => {
   const data = req.body;
