@@ -8,7 +8,7 @@ const useVehicle = () => {
   const getVehicleData = async () => {
     try {
       const data = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/get/inventory`
+        `https://techical-exam.onrender.com/get/inventory`
       );
       if (!data) {
         throw new Error("Network Connection Error");

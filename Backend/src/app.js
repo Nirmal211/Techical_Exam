@@ -13,7 +13,7 @@ const _dirname = path.resolve();
 
 // Configue Cors
 const corsOptions = {
-  origin: process.env.FRONTEND_URL, // Allow all origin
+  origin:"https://techical-exam.onrender.com", // Allow all origin
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed Methods
   allowedHeaders: ["Content-type", "Authorization"], // Allowed headers
   credential: true,
