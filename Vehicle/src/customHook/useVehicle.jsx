@@ -7,7 +7,9 @@ const useVehicle = () => {
 
   const getVehicleData = async () => {
     try {
-      const data = await fetch("http://localhost:3000/get/inventory");
+      const data = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/get/inventory`
+      );
       if (!data) {
         throw new Error("Network Connection Error");
       }

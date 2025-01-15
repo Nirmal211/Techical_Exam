@@ -1,10 +1,21 @@
 const express = require("express");
 const { connectDb } = require("./Database/Database");
 const Inventory = require("./model/vehicleModel");
+const cors = require("cors");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const app = express();
+const PORT = 3000;
 
-// var vehicleRoute = require("./Routes/vehicleRoute");
+// Configue Cors
+const corsOptions = {
+  origin: process.env.FRONTEND_URL, // Allow all origin
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed Methods
+  allowedHeaders: ["Content-type", "Authorization"], // Allowed headers
+};
+
+app.use(cors(corsOptions));
 
 app.post("/setData", async (req, res) => {
   const data = req.body;
@@ -35,8 +46,8 @@ app.get("/get/inventory", async (req, res) => {
 connectDb()
   .then(() => {
     console.log("server is connected to database");
-    app.listen(3000, () => {
-      console.log("server is listening to port 3000");
+    app.listen(PORT, () => {
+      console.log(`server is listening to port ${PORT}`);
     });
   })
   .catch((err) => {
