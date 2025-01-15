@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const app = express();
-const PORT = 3000;
+const PORT = 7777;
 
 // Configue Cors
 const corsOptions = {
@@ -43,10 +43,9 @@ app.get("/get/inventory", async (req, res) => {
   }
 });
 
-
-app.get('/' , (req,res) => {
-  res.send("Welcome to the Technical Exam Page")
-})
+app.get("/", (req, res) => {
+  res.send("Welcome to the Technical Exam Page");
+});
 
 connectDb()
   .then(() => {
