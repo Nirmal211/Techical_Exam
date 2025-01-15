@@ -17,6 +17,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Technical Exam Page");
+});
+
 app.post("/setData", async (req, res) => {
   const data = req.body;
   const vehicleData = await Inventory(data);
@@ -41,10 +45,6 @@ app.get("/get/inventory", async (req, res) => {
   } catch (err) {
     res.status({ ERR: err.message });
   }
-});
-
-app.get("/", (req, res) => {
-  res.send("Welcome to the Technical Exam Page");
 });
 
 connectDb()
