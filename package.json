@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/app.js"
+    "dev": "nodemon Backend/src/app.js",
+    "build":"npm install && npm install --prefix Vehicle && npm run build --prefix Vehicle",
+    "start":"nodemon Backend/src/app.js"
   },
   "author": "Nirmal Pandey",
   "license": "ISC",

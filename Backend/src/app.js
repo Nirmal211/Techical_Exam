@@ -3,16 +3,20 @@ const { connectDb } = require("./Database/Database");
 const Inventory = require("./model/vehicleModel");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 
 dotenv.config();
 const app = express();
-const PORT = 3000;
+const PORT = 8000;
+
+const _dirname = path.resolve();
 
 // Configue Cors
 const corsOptions = {
   origin: process.env.FRONTEND_URL, // Allow all origin
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed Methods
   allowedHeaders: ["Content-type", "Authorization"], // Allowed headers
+  credential: true,
 };
 
 app.use(cors(corsOptions));
@@ -45,6 +49,11 @@ app.get("/get/inventory", async (req, res) => {
   } catch (err) {
     res.status({ ERR: err.message });
   }
+});
+
+app.use(express.static(path.join(_dirname, "/Vehicle/dist")));
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(_dirname, "Vehicle", "dist", "index.html"));
 });
 
 connectDb()
