@@ -43,6 +43,11 @@ app.get("/get/inventory", async (req, res) => {
   }
 });
 
+
+app.get('/' , (req,res) => {
+  res.send("Welcome to the Technical Exam Page")
+})
+
 connectDb()
   .then(() => {
     console.log("server is connected to database");
